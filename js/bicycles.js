@@ -56,7 +56,7 @@ function displayBike(bike) {
   const bikesSection = document.querySelector(".bikes-section");
   const card = document.createElement("div");
   const img = document.createElement("img");
-  const title = document.createElement("h3");
+  const title = document.createElement("h4");
   const weight = document.createElement("p");
   card.classList.add("bike-card");
   img.classList.add("bike-card__img");
