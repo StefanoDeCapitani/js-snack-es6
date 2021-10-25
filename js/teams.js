@@ -86,3 +86,28 @@ for (const team of footballTeams) {
     foulsSuffered,
   });
 }
+
+footballTeamsFoulsSuffered.sort((a, b) => b.foulsSuffered - a.foulsSuffered);
+
+const teamsTableBody = document.querySelector(".teams-table__body");
+
+function displayFoulsSufferedTable() {
+  for (let i = 0; i < footballTeamsFoulsSuffered.length; i++) {
+    const teamFoulsSuffered = footballTeamsFoulsSuffered[i];
+    displaySingleTeamFoulsSuffered(teamFoulsSuffered);
+  }
+}
+
+function displaySingleTeamFoulsSuffered(team) {
+  let tr = document.createElement("tr");
+  let tdTeam = document.createElement("td");
+  let tdFouls = document.createElement("td");
+
+  tdTeam.textContent = team.name;
+  tdFouls.textContent = team.foulsSuffered;
+  tr.append(tdTeam);
+  tr.append(tdFouls);
+  teamsTableBody.append(tr);
+}
+
+displayFoulsSufferedTable();
