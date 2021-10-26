@@ -43,13 +43,18 @@ const racingBikes = [
 ];
 
 function displayLightestBike() {
-  let lightestBike = findLightestBike(racingBikes);
+  let lightestBike = getLightestBike(racingBikes);
   displayBike(lightestBike);
 }
 
-function findLightestBike(bikes) {
-  bikes.sort((bike1, bike2) => bike1.weightinKg - bike2.weightinKg);
-  return bikes[0];
+function getLightestBike(bikes) {
+  let lightestBike;
+  for (let i = 0; i < bikes.length - 1; i++) {
+    if (bikes[i].weightinKg > bikes[i + 1].weightinKg) {
+      lightestBike = bikes[i + 1];
+    }
+  }
+  return lightestBike;
 }
 
 function displayBike(bike) {
